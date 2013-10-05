@@ -16,11 +16,23 @@ echo $_GET['uid'];
 echo $_GET['company'];
 
  if (isset($_GET['uid']) && isset($_GET['company'])) {
-    $id = $_GET['uid'];
+    $id = sanitizeString($_GET['uid']);
     echo "received id: " . $id;         //!!!! need to regex to check input
-    $database = $_GET['company'];    //!!!! need to regex to check input
+    $database = sanitizeString($_GET['company']);    //!!!! need to regex to check input
     echo "received company: " . $company;
  }
+
+
+ /* sanitizeString is a function that is intended to sanitize input gathered
+ * from forms in order to prevent injection and cross site scripting
+ * $str_input is the string retrieved*/
+function sanitizeString($str_input) {
+    $str_input = strip_tags($str_input);
+    $str_input = htmlentities($str_input);
+    $str_input = stripslashes($str_input);
+    return $str_input;
+}
+
 
  echo "hello there";
 /*
