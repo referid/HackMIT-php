@@ -11,6 +11,10 @@ echo <<<_END
         <div id="main" class="center">
 _END;
 
+echo $_GET['uid'];
+
+echo $_GET['company'];
+
  if (isset($_GET['uid']) && isset($_GET['company'])) {
     $id = sanitizeString($_GET['uid']);
     echo "received id: " . $id;         //!!!! need to regex to check input
