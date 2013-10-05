@@ -4,7 +4,7 @@
     </head>
     <body>
         <div id="main" class="center">
-            <?php include('layout/content.php'); ?>
+            <?php include('/layout/content.php'); ?>
         </div>
     </body>
 </html>
