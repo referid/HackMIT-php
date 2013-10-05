@@ -1,8 +1,6 @@
 <?php
 echo "boo";
-require '/lib/PHP-on-Couch/lib/couch.php';
-require '/lib/PHP-on-Couch/lib/couchClient.php';
-require '/lib/PHP-on-Couch/lib/couchDocument.php';
+
 echo "boo";
 echo <<<_END
 <html>
@@ -19,7 +17,7 @@ _END;
     $database = sanitizeString($_GET['company']);    //!!!! need to regex to check input
     echo "received company: " . $company;
  }
-
+/*
     try {
         $client = new couchClient ('http://localhost:5984', 'company');
     } catch (Exception $e) {
@@ -37,7 +35,7 @@ _END;
         exit(1);
     }
     echo "exit try statement";
-
+      */
 echo <<<_END
         </div>
     </body>
