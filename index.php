@@ -1,8 +1,8 @@
 <?php
 echo "boo";
-require_once '/lib/PHP-on-Couch/lib/couch.php';
-require_once '/lib/PHP-on-Couch/lib/couchClient.php';
-require_once '/lib/PHP-on-Couch/lib/couchDocument.php';
+require '/lib/PHP-on-Couch/lib/couch.php';
+require '/lib/PHP-on-Couch/lib/couchClient.php';
+require '/lib/PHP-on-Couch/lib/couchDocument.php';
 echo "boo";
 echo <<<_END
 <html>
@@ -12,6 +12,13 @@ echo <<<_END
     <body>
         <div id="main" class="center">
 _END;
+
+ if (isset($_GET['uid']) && isset($_GET['company'])) {
+    $id = sanitizeString($_GET['uid']);
+    echo "received id: " . $id;         //!!!! need to regex to check input
+    $database = sanitizeString($_GET['company']);    //!!!! need to regex to check input
+    echo "received company: " . $company;
+ }
 
     try {
         $client = new couchClient ('http://localhost:5984', 'company');
