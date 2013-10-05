@@ -23,7 +23,7 @@ require_once 'lib/PHP-on-Couch/lib/couchDocument.php';
 echo "after required statements";
 
 try {
-    $client = new couchClient ('http://localhost:5984', $company);
+    $client = new couchClient ('http://localhost:5984', 'company');
 } catch (Exception $e) {
     echo "exception caught";
 }
