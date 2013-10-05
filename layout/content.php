@@ -4,6 +4,10 @@ require_once './../lib/PHP-on-Couch/lib/couchClient.php';
 require_once './../lib/PHP-on-Couch/lib/couchDocument.php';
 
 
+    // !!!!!!!!!!!!!!TESTING
+    $client = new couchClient ('http://localhost:5984', 'company');
+    var_dump($client);
+
  //Check if received message from
  if (isset($_GET['uid']) && isset($_GET['db'])) {
     $id = sanitizeString($_GET['uid']);         //!!!! need to regex to check input
