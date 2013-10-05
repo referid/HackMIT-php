@@ -7,9 +7,9 @@ echo <<<_END
     <body>
         <div id="main" class="center">
 _END;
-require_once '/../lib/PHP-on-Couch/lib/couch.php';
-require_once '/../lib/PHP-on-Couch/lib/couchClient.php';
-require_once '/../lib/PHP-on-Couch/lib/couchDocument.php';
+require_once '/lib/PHP-on-Couch/lib/couch.php';
+require_once '/lib/PHP-on-Couch/lib/couchClient.php';
+require_once '/lib/PHP-on-Couch/lib/couchDocument.php';
 
     try {
         $client = new couchClient ('http://localhost:5984', 'company');
