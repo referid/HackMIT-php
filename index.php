@@ -1,9 +1,9 @@
 <?php
-
+echo "boo";
 require_once '/lib/PHP-on-Couch/lib/couch.php';
 require_once '/lib/PHP-on-Couch/lib/couchClient.php';
 require_once '/lib/PHP-on-Couch/lib/couchDocument.php';
-
+echo "boo";
 echo <<<_END
 <html>
     <head>
