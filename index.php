@@ -22,26 +22,24 @@ require_once 'lib/PHP-on-Couch/lib/couchDocument.php';
 
 echo "after required statements";
 
+try {
+    $client = new couchClient ('http://localhost:5984', 'company');
+} catch (Exception $e) {
+    echo "exception caught";
+}
 
-/*
-    try {
-        $client = new couchClient ('http://localhost:5984', 'company');
-    } catch (Exception $e) {
-        echo "exception caught";
+// document fetching by ID
+try {
+    $doc = $client->getDoc('7b668553');
+        echo "trying to get doc";
+} catch ( Exception $e ) {
+    if ( $e->getCode() == 404 ) {
+       echo "Document does not exist !";
     }
-    echo "connected to client";
-    // document fetching by ID
-    try {
-        $doc = $client->getDoc('7b668553');
-            echo "trying to get doc";
-    } catch ( Exception $e ) {
-        if ( $e->getCode() == 404 ) {
-           echo "Document does not exist !";
-        }
-        exit(1);
-    }
-    echo "exit try statement";
-      */
+    exit(1);
+}
+echo "exit try statement";
+
 
 
  /* sanitizeString is a function that is intended to sanitize input gathered
