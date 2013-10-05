@@ -4,6 +4,7 @@
     </head>
     <body>
         <div id="main" class="center">
+            <?= "boo" ?>
             <?php include('layout/content.php'); ?>
         </div>
     </body>
