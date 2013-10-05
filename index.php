@@ -32,6 +32,7 @@ try {
 try {
     $doc = $client->getDoc('"' . $id . '"');
         echo "trying to get doc";
+        var_dump($doc);
 } catch ( Exception $e ) {
     if ( $e->getCode() == 404 ) {
        echo "Document does not exist !\n";
