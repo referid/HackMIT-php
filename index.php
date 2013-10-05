@@ -23,14 +23,14 @@ require_once 'lib/PHP-on-Couch/lib/couchDocument.php';
 echo "after required statements\n";
 
 try {
-    $client = new couchClient ('http://localhost:5984', $company);
+    $client = new couchClient ('http://localhost:5984', '"' . $company . '"');
 } catch (Exception $e) {
     echo "exception caught\n";
 }
 
 // document fetching by ID
 try {
-    $doc = $client->getDoc($id);
+    $doc = $client->getDoc('"' . $id . '"');
         echo "trying to get doc";
 } catch ( Exception $e ) {
     if ( $e->getCode() == 404 ) {
