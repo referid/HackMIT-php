@@ -16,11 +16,13 @@ echo $_GET['uid'];
 echo $_GET['company'];
 
  if (isset($_GET['uid']) && isset($_GET['company'])) {
-    $id = sanitizeString($_GET['uid']);
+    $id = $_GET['uid'];
     echo "received id: " . $id;         //!!!! need to regex to check input
-    $database = sanitizeString($_GET['company']);    //!!!! need to regex to check input
+    $database = $_GET['company'];    //!!!! need to regex to check input
     echo "received company: " . $company;
  }
+
+ echo "hello there";
 /*
     try {
         $client = new couchClient ('http://localhost:5984', 'company');
