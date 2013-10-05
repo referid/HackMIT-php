@@ -1,12 +1,23 @@
 <?php
-require_once './../lib/PHP-on-Couch/lib/couch.php';
-require_once './../lib/PHP-on-Couch/lib/couchClient.php';
-require_once './../lib/PHP-on-Couch/lib/couchDocument.php';
+require_once '/../lib/PHP-on-Couch/lib/couch.php';
+require_once '/../lib/PHP-on-Couch/lib/couchClient.php';
+require_once '/../lib/PHP-on-Couch/lib/couchDocument.php';
 
 
     // !!!!!!!!!!!!!!TESTING
     $client = new couchClient ('http://localhost:5984', 'company');
-    var_dump($client);
+    echo "connected to client";
+    // document fetching by ID
+    try {
+        $doc = $client->getDoc('7b668553');
+            echo "trying to get doc";
+    } catch ( Exception $e ) {
+        if ( $e->getCode() == 404 ) {
+           echo "Document does not exist !";
+        }
+        exit(1);
+    }
+    echo "exit try statement";
 
  //Check if received message from
  if (isset($_GET['uid']) && isset($_GET['db'])) {
