@@ -11,9 +11,9 @@ _END;
 
  if (isset($_GET['uid']) && isset($_GET['company'])) {
     $id = sanitizeString($_GET['uid']); //!!!! need to regex to check input
-    echo "received id: " . $id;
+    echo "received id: " . $id . "\n";
     $company = sanitizeString($_GET['company']); //!!!! need to regex to check input
-    echo "received company: " . $company;
+    echo "received company: " . $company . "\n";
  }
 
 require_once 'lib/PHP-on-Couch/lib/couch.php';
