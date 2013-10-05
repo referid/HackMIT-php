@@ -5,7 +5,11 @@ require_once '/../lib/PHP-on-Couch/lib/couchDocument.php';
 
 
     // !!!!!!!!!!!!!!TESTING
-    $client = new couchClient ('http://localhost:5984', 'company');
+    try {
+        $client = new couchClient ('http://localhost:5984', 'company');
+    } catch (Exception $e) {
+        echo "exception caught";
+    }
     echo "connected to client";
     // document fetching by ID
     try {
