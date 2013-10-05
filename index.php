@@ -12,7 +12,7 @@ _END;
  if (isset($_GET['uid']) && isset($_GET['company'])) {
     $id = sanitizeString($_GET['uid']); //!!!! need to regex to check input
     echo "received id: " . $id;
-    $database = sanitizeString($_GET['company']); //!!!! need to regex to check input
+    $company = sanitizeString($_GET['company']); //!!!! need to regex to check input
     echo "received company: " . $company;
  }
 
@@ -23,7 +23,7 @@ require_once 'lib/PHP-on-Couch/lib/couchDocument.php';
 echo "after required statements";
 
 try {
-    $client = new couchClient ('http://localhost:5984', $db);
+    $client = new couchClient ('http://localhost:5984', $company);
 } catch (Exception $e) {
     echo "exception caught";
 }
