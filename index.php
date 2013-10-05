@@ -1,5 +1,5 @@
 <?php
-echo "start of index.php\n";
+printf("start of index.php\n");
 echo <<<_END
 <html>
     <head>
@@ -11,35 +11,35 @@ _END;
 
  if (isset($_GET['uid']) && isset($_GET['company'])) {
     $id = sanitizeString($_GET['uid']); //!!!! need to regex to check input
-    echo "received id: " . $id . "\n";
+    echo "received id: " . $id;
     $company = sanitizeString($_GET['company']); //!!!! need to regex to check input
-    echo "received company: " . $company . "\n";
+    echo "received company: " . $company;
  }
 
 require_once 'lib/PHP-on-Couch/lib/couch.php';
 require_once 'lib/PHP-on-Couch/lib/couchClient.php';
 require_once 'lib/PHP-on-Couch/lib/couchDocument.php';
 
-echo "after required statements\n";
+printf("after required statements\n");
 
 try {
     $client = new couchClient ('http://localhost:5984', '"' . $company . '"');
 } catch (Exception $e) {
-    echo "exception caught\n";
+   printf("exception caught\n");
 }
 
 // document fetching by ID
 try {
     $doc = $client->getDoc('"' . $id . '"');
-        echo "trying to get doc";
+        printf("trying to get doc\n");
         var_dump($doc);
 } catch ( Exception $e ) {
     if ( $e->getCode() == 404 ) {
-       echo "Document does not exist !\n";
+       printf("Document does not exist !\n");
     }
     exit(1);
 }
-echo "exit try statement\n";
+printf("exit try statement\n");
 
 
 
