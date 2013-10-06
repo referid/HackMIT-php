@@ -11,7 +11,9 @@ _END;
 
 
 
-        $httpResp = http_get("http://api.hostip.info/get_json.php", array("ip"=>$ip), $info);
+$ip = sanitizeString($_SERVER['REMOTE_ADDR']);
+$httpResp = http_get("http://api.hostip.info/get_json.php", array("ip"=>$ip), $info);
+
 
 // Retreive GET parameters
 if (isset($_GET['uid']) && isset($_GET['company'])) {
