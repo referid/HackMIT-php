@@ -11,11 +11,6 @@ _END;
 
 
 
-$ip = $_SERVER['REMOTE_ADDR'];
-//$httpResp = http_get("http://api.hostip.info/get_json.php", array("ip"=>$ip), $info);
-$result = file_get_contents("http://api.hostip.info/get_json.php?ip=" . $ip);
-echo $result;
-
 
 // Retreive GET parameters
 if (isset($_GET['uid']) && isset($_GET['company'])) {
@@ -66,6 +61,8 @@ try {
         $username = sanitizeString($_GET['username']); //!!!! need to regex to check input
         $ip = sanitizeString($_SERVER['REMOTE_ADDR']); //!!!! need to regex to check input
 
+        //store json object as location
+        $location = file_get_contents("http://api.hostip.info/get_json.php?ip=" . $ip);
 
         $new_doc = new stdClass();
         $new_doc->username = $username;
@@ -77,7 +74,7 @@ try {
         $new_doc->username = $username;
         $new_doc->link = $id;
         $new_doc->time = time();
-        $new_doc->postal_code = $location;
+        $new_doc->location = $location;
 
         try {
           $response = $client->storeDoc($new_doc);
