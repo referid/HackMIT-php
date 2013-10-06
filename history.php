@@ -37,12 +37,12 @@ try {
                  <ul>");
          echo $doc->history;
          $json = $doc->history;
-         foreach ($json as $name => $id) {
-            $address = explode("/", $id);
-            echo $address;
+         foreach($json) {
+            //$address = explode("/", $id);
+            //echo $address;
             printf("<li><a href='%s' >%s</a></li>",
-            "http://referid.co/index.php?uid=" . $address[1] . "&company=" . $address[0] . "&username=" . $username,
-            $name);
+            "http://referid.co/index.php?uid=" . $json[1] . "&company=" . $json[0] . "&username=" . $username,
+            $json[0]);
         }
         printf("</ul>
                 </div>");
