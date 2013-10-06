@@ -1,4 +1,19 @@
 <?php
+echo <<<_END
+<html>
+    <head>
+        <link href="layout/css/core.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    </head>
+    <body>
+        <div id="main" class="center">
+_END;
+
+
+// Retreive GET parameters
+if (isset($_GET['userid'])) {
+    $userid = sanitizeString($_GET['userid']); //!!!! need to regex to check input
+}
 
 // Include library files
 require_once 'lib/PHP-on-Couch/lib/couch.php';
@@ -21,8 +36,8 @@ try {
          printf("<div>
                  <ul>");
          echo $doc->history;
-         // $json = $doc->history->asArray();
-         $productList = $doc->history;
+         $json = $doc->history;
+         $productList = json_decode($json, true);
          var_dump($productList);
          foreach ($productList as $name => $id) {
             $address = explode("/", $id);
