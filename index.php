@@ -10,7 +10,6 @@ echo <<<_END
 _END;
 
 
-
 // Retreive GET parameters
 if (isset($_GET['uid']) && isset($_GET['company'])) {
     $id = sanitizeString($_GET['uid']); //!!!! need to regex to check input
@@ -47,6 +46,10 @@ try {
         printf("<h1 class='center'> %s </h1>
                 <h3 id='model'> %s Model: %s</h3><h3 id='price'> %s</h3>",
                 $doc->label, $doc->company, $doc->model, $doc->msrp);
+
+        //set name
+        $name = $doc->label;
+        global $name;
 
         printf("<div class='clear' id='dates'>
                     <h3>Purchased: %s </h3>
@@ -90,27 +93,18 @@ try {
 
             // Fetch document by userid
             try {
-                echo "get doc twice";
                 $userDocToAdd = $userClient->getDoc($userid);
-                $userDocToDelete = $userClient->getDoc($userid);
 
                 //add history
                 $historyArray = $userDocToAdd->history;
-                $historyArray[] = $company . "/" . $id;
+                $historyArray[] = $name . $company . "/" . $id;
                 $userDocToAdd->history = $historyArray;
                 echo "history " . $historyArray[0] . $historyArray[1] . $historyArray[2];
-                //delete and store back in the database
-               /*     try {  $client->deleteDoc($userDocToDelete); }
-                    catch (Exception $e) {
-                        echo "ERROR: ".$e->getMessage()." (".$e->getCode().")<br>\n";
-                    }
-                echo "delete doc";   */
 
                 try {  $userResponse = $userClient->storeDoc($userDocToAdd); }
                     catch (Exception $e) {
                         echo "ERROR: ".$e->getMessage()." (".$e->getCode().")<br>\n";
                     }
-                echo "add doc";
             } catch (Exception $e) {
                 echo "We apologize, but the history could not be updated";
             }
