@@ -102,9 +102,16 @@ try {
                 $historyArray[] = $company . "/" . $id;
                 echo "history " . $historyArray[0] . $historyArray[1] . $historyArray[2];
                 //delete and store back in the database
-                $client->deleteDoc($userDocToDelete);
+                    try {  $client->deleteDoc($userDocToDelete); }
+                    catch (Exception $e) {
+                        echo "delete went wrong";
+                    }
                 echo "delete doc";
-                $userResponse = $userClient->storeDoc($userDocToAdd);
+
+                                    try {  $userResponse = $userClient->storeDoc($userDocToAdd); }
+                    catch (Exception $e) {
+                        echo "add went wrong";
+                    }
                 echo "add doc";
             } catch (Exception $e) {
                 echo "We apologize, but the history could not be updated";
