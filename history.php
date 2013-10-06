@@ -37,6 +37,7 @@ try {
          $view = $client->include_docs(true)->keys(array("username" => $username))->getAllDocs();
 
         var_dump($view);
+        die();
 
 
 
