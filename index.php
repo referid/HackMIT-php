@@ -87,7 +87,7 @@ try {
 
         try {
           $response = $client->storeDoc($new_doc);
-
+           /*
           // Connect with User Database
           try {
             $userClient = new couchClient ('http://localhost:5984', 'db_users');
@@ -111,7 +111,7 @@ try {
             }
           } catch (Exception $e) {
               echo "We apologize, but the client db connection could not be made";
-          }
+          }  */
 
         } catch (Exception $e) {
           echo "We apologize, but the document could not be saved\n";
