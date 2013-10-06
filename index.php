@@ -55,7 +55,7 @@ try {
                 date('d M, Y', $doc->purchase_date), date('d M, Y', $warranty_exp));
 
         printf("<h3><a href=%s>User Manual</a></h3>
-                <h3>%s</h3>
+                <h3>Service Number: %s</h3>
                 </div>",
                 $doc->manual,$doc->phone);
 
