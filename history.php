@@ -22,7 +22,7 @@ try {
                  <ul>");
          echo $doc->history;
          // $json = $doc->history->asArray();
-         $productList = $doc->history->asArray();
+         $productList = $doc->history;
          var_dump($productList);
          foreach ($productList as $name => $id) {
             $address = explode("/", $id);
