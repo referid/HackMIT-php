@@ -10,11 +10,9 @@ echo <<<_END
 _END;
 
 
-
 // Retreive GET parameters
-if (isset($_GET['uid']) && isset($_GET['company'])) {
+if (isset($_GET['username'])) {
     $id = sanitizeString($_GET['uid']); //!!!! need to regex to check input
-    $company = sanitizeString($_GET['company']); //!!!! need to regex to check input
 }
 
 // Include library files
@@ -30,10 +28,19 @@ printf("<div id='banner' class='bar-left'>
 
 // Connect with Database
 try {
-    $client = new couchClient ('http://localhost:5984', 'db_' . $company);
+    $client = new couchClient ('http://localhost:5984', 'db_' . 'users');
 
     // Fetch document by id
     try {
+
+        $response = $client->key($username)->limit(100)->include_docs(TRUE)->getView('all','by_date');
+
+        var_dump($response);
+
+
+
+
+        /*
         $doc = $client->getDoc($id);
         $warranty_exp = $doc->purchase_date + $doc->warranty_length;
         printf("<div class='bar-right'>");
@@ -59,31 +66,10 @@ try {
         printf("<h3><a href=%s>User Manual</a></h3>
                 </div>",
                 $doc->manual);
-
+                         */
     } catch ( Exception $e ) {
         if ( $e->getCode() == 404 ) {
             echo "We apologise, but the document does not exist\n";
-        }
-    }
-
-    // Build Reference
-    if (isset($_GET['username']) && isset($_SERVER['REMOTE_ADDR'])) {
-        $username = sanitizeString($_GET['username']); //!!!! need to regex to check input
-        $ip = sanitizeString($_SERVER['REMOTE_ADDR']); //!!!! need to regex to check input
-
-        //store json object as location
-        $location = file_get_contents("http://api.hostip.info/get_json.php?ip=" . $ip);
-
-        $new_doc = new stdClass();
-        $new_doc->username = $username;
-        $new_doc->link = $id;
-        $new_doc->time = time();
-        $new_doc->location = $location;
-
-        try {
-          $response = $client->storeDoc($new_doc);
-        } catch (Exception $e) {
-          echo "We apologise, but the document could not be saved\n";
         }
     }
 
@@ -92,7 +78,6 @@ try {
                 <h2> We apologise, but the server could not connect</h2>
             </div>");
 }
-
 
 
  /* sanitizeString is a function that is intended to sanitize input gathered
@@ -104,7 +89,6 @@ function sanitizeString($str_input) {
     $str_input = stripslashes($str_input);
     return $str_input;
 }
-
 
 
 echo <<<_END
