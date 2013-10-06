@@ -3,6 +3,8 @@ echo <<<_END
 <html>
     <head>
         <link href="layout/css/core.css" rel="stylesheet" type="text/css" />
+        <link href="layout/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="layout/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
     </head>
     <body>
