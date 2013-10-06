@@ -32,7 +32,7 @@ try {
 
     // Fetch document by id
     try {
-        $view_fn="function(doc) { emit(doc.timestamp,null); }";
+        $view_fn = "function(doc) { emit(doc.username); }";
         $design_doc->_id = '_design/history';
         $design_doc->language = 'javascript';
         $design_doc->views = array ( 'username'=> array ('map' => $view_fn ) );
