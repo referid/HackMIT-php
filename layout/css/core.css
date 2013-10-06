@@ -70,3 +70,7 @@ ul {
     float:right;
     margin-right:5px;
 }
+
+#dates {
+    border: 1px solid #3f7ca5;
+}
