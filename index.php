@@ -1,5 +1,4 @@
 <?php
-printf("start of index.php\n");
 echo <<<_END
 <html>
     <head>
@@ -26,7 +25,7 @@ require_once 'lib/PHP-on-Couch/lib/couchDocument.php';
 printf("<div id='banner' class='bar-left'>
             <img src='layout/images/logo.png' alt='referid'/>
         </div>
-        <hr />");
+        <hr class='clear' />");
 
 
 
@@ -64,7 +63,6 @@ function sanitizeString($str_input) {
     return $str_input;
 }
 
-echo "end of index.php";
 echo <<<_END
         </div>
     </body>
