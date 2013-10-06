@@ -96,7 +96,7 @@ function sanitizeString($str_input) {
 
 
 echo <<<_END
-        </div>
+
     </body>
 </html>
 _END;
