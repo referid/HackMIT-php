@@ -35,9 +35,10 @@ try {
          $doc = $client->getDoc($userid);
          printf("<div>
                  <ul>");
-         echo $doc->history;
          $json = $doc->history;
-         echo $json[0];
+         foreach($json as $key => $val) {
+            echo $key . ',' . $val;
+         }
 #         foreach($json) {
 #            //$address = explode("/", $id);
 #            //echo $address;
