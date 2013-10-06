@@ -39,10 +39,12 @@ try {
         $warranty_exp = $doc->purchase_date + $doc->warranty_length;
         printf("<div class='bar-right'>");
 
-        if (count($doc->_attachments) > 0) {
-            foreach($doc->_attachments as $name => $values)
-            printf("<img src='%s' width='200' />",
-            $doc->getAttachmentURI($name));
+        if ($doc->_attachments) {
+            foreach($doc->_attachments as $name => $values) {
+                echo $name;
+                printf("<img src='%s' width='200' />",
+                $doc->getAttachmentURI($name));
+            }
         }
 
         printf("<h1 class='center'> %s </h1>
