@@ -35,6 +35,7 @@ try {
          $docArray = $client->getAllDocs();
          echo "fetched all docs";
          foreach ($docArray as $doc) {
+             var_dump($doc);
              if ($doc->username == $username) {
                 echo $username;
                  printf("<div>
