@@ -36,8 +36,8 @@ try {
         $doc = $client->getDoc($id);
         printf("<div class='bar-right'>
                     <h1 class='center'> %s </h1>
-                    <h3> %s Model: %s</h3>
-                </div>", $doc->label, $doc->company, $doc->model);
+                    <h3 id='model'> %s Model: %s</h3><h3 id='price'> %s</h3>
+                </div>", $doc->label, $doc->company, $doc->model, $doc->msrp);
 
     } catch ( Exception $e ) {
         if ( $e->getCode() == 404 ) {

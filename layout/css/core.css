@@ -60,3 +60,13 @@ ul {
     padding-right: 18px;
     background-image: url("/layout/images/barRepeat.png");
 }
+
+#model {
+    float:left;
+    margin-left:5px;
+}
+
+#price {
+    float:right;
+    margin-right:5px;
+}
