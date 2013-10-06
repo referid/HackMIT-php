@@ -39,6 +39,7 @@ try {
                          <ul>");
                 foreach ($doc->history as $name => $id) {
                     $address = explode("/", $id);
+                    echo $address;
                     printf("<li><a href='%s' >%s</a></li>",
                     "http://referid.co/index.php?uid=" . $address[1] . "&company=" . $address[0] . "&username=" . $username,
                     $name);
@@ -47,7 +48,6 @@ try {
                         </div>");
              }
          }
-        var_dump($view);
 
     } catch ( Exception $e ) {
         if ( $e->getCode() == 404 ) {
