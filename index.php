@@ -43,7 +43,7 @@ try {
         if (file_exists($file)) {
           printf("<img src='%s' width='200' />", $file);
         }
-        
+
         printf("<h1 class='center'> %s </h1>
                 <h3 id='model'> %s Model: %s</h3><h3 id='price'> %s</h3>",
                 $doc->label, $doc->company, $doc->model, $doc->msrp);
@@ -66,15 +66,15 @@ try {
     }
 
     // Build Reference
-    if (isset($_GET['username']) && isset($_SERVER['REMOTE_ADDR'])) {
-        $username = sanitizeString($_GET['username']); //!!!! need to regex to check input
+    if (isset($_GET['userid']) && isset($_SERVER['REMOTE_ADDR'])) {
+        $userid = sanitizeString($_GET['userid']); //!!!! need to regex to check input
         $ip = sanitizeString($_SERVER['REMOTE_ADDR']); //!!!! need to regex to check input
 
         //store json object as location
         $location = file_get_contents("http://api.hostip.info/get_json.php?ip=" . $ip);
 
         $new_doc = new stdClass();
-        $new_doc->username = $username;
+        $new_doc->userid = $userid;
         $new_doc->link = $id;
         $new_doc->time = time();
         $new_doc->location = $location;
