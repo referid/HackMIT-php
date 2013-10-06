@@ -35,8 +35,8 @@ try {
          $doc = $client->getDoc($userid);
          printf("<div>
                  <ul>");
-                 var_dump($doc->history);
-         foreach ($doc->history as $name => $id) {
+         $productList = json_decode($doc->history, true);
+         foreach ($productList as $name => $id) {
             $address = explode("/", $id);
             echo $address;
             printf("<li><a href='%s' >%s</a></li>",
