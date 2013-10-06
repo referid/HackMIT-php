@@ -37,6 +37,7 @@ try {
                  <ul>");
          $json = $doc->history;
          foreach($json as $value) {
+             echo $value;
            $split = explode('/', $value);
            printf("<h3><a href='http://referid.co/index.php?company=%s&uid=%s'><li class='link'>%s</li></a></h3>", $split[1], $split[2], $split[0]);
          }
