@@ -94,7 +94,7 @@
   border-radius: 4px;
 }
 .progress .bar {
-  width: 0%;
+  width: 20%;
   height: 100%;
   color: #ffffff;
   float: left;
