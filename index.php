@@ -46,7 +46,7 @@ try {
                     <h3>Purchased: %s </h3>
                     <h3>Warranty Expires: %s </h3>
                </div>",
-                date('d m, Y', $doc->purchase_date), date('d m, Y', $warranty_exp));
+                date('d M, Y', $doc->purchase_date), date('d M, Y', $warranty_exp));
 
         printf("<h3><a href=%s>User Manual</a></h3>", $doc->manual);
 
