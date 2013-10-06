@@ -33,11 +33,11 @@ try {
     // Fetch document by id
     try {
         $view_fn="function(doc) { emit(doc.timestamp,null); }";
-        $design_doc->_id = '_design/all';
+        $design_doc->_id = '_design/history';
         $design_doc->language = 'javascript';
-        $design_doc->views = array ( 'by_date'=> array ('map' => $view_fn ) );
+        $design_doc->views = array ( 'username'=> array ('map' => $view_fn ) );
         $client->storeDoc($design_doc);
-        $response = $client->key($username)->limit(100)->include_docs(TRUE)->getView('all','by_date');
+        $response = $client->key($username)->limit(100)->include_docs(TRUE)->getView('history','username');
 
         var_dump($response);
 
