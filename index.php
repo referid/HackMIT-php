@@ -98,7 +98,8 @@ try {
                 $userDocToDelete = $userClient->getDoc($userid);
 
                 //add history
-                echo "history " . $userDocToAdd->history[]; //= $company . "/" . $id; //!!!!!!!!!!!Is this legit
+                $historyArray = $userDocToAdd->history;
+                echo "history " . historyArray[0]; //= $company . "/" . $id; //!!!!!!!!!!!Is this legit
 
                 /*
                 //delete and store back in the database
