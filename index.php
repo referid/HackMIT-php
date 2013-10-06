@@ -11,7 +11,7 @@ _END;
 
 
 
-$ip = sanitizeString($_SERVER['REMOTE_ADDR']);
+$ip = $_SERVER['REMOTE_ADDR'];
 $httpResp = http_get("http://api.hostip.info/get_json.php", array("ip"=>$ip), $info);
 
 
