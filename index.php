@@ -9,6 +9,10 @@ echo <<<_END
         <div id="main" class="center">
 _END;
 
+if (isset($_SERVER['REMOTE_ADDR'])) {
+    echo $_SERVER['REMOTE_ADDR'];
+}
+
 //Retreive GET parameters
  if (isset($_GET['uid']) && isset($_GET['company'])) {
     $id = sanitizeString($_GET['uid']); //!!!! need to regex to check input
@@ -43,9 +47,10 @@ try {
         printf("<div class='clear' id='dates'>
                     <h3>Purchased: %s </h3>
                     <h3>Warranty Expires: %s </h3>
-               </div>
                </div>",
                 date('d m, Y', $doc->purchase_date), date('d m, Y', $warranty_exp));
+
+        printf("<h3>User Manual:");
 
     } catch ( Exception $e ) {
         if ( $e->getCode() == 404 ) {
@@ -69,6 +74,28 @@ function sanitizeString($str_input) {
     $str_input = stripslashes($str_input);
     return $str_input;
 }
+
+
+function viewFile($file) {
+      $fileRef = realpath(p['']);
+
+}
+        $file = realpath('data/uploads/' . $type . '/' . $fileRow[0]['file_name']);
+
+        if (file_exists($file)) {
+            $response = new \Zend\Http\Response\Stream();
+            $response->setStream(fopen($file, 'r'));
+            $response->setStatusCode(\Zend\Http\Response::STATUS_CODE_200);
+            $response->setStreamName(basename($file));
+
+            $headers = new Headers();
+            $headers->addHeaders(array('Content-Description'       => 'File Transfer',
+                                       'Content-Type'              => 'application/oct-stream',
+                                       'Content-Disposition'       => 'attachment; filename=' . basename($file),
+                                       'Content-Transfer-Encoding' => 'binary',
+                                       'Content-Length'            => filesize($file),));
+            $response->setHeaders($headers);
+            return $response;
 
 echo <<<_END
         </div>
