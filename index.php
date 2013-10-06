@@ -40,8 +40,11 @@ try {
                     <h3 id='model'> %s Model: %s</h3><h3 id='price'> %s</h3>",
                     $doc->label, $doc->company, $doc->model, $doc->msrp);
 
-        printf("<h3 class='clear dates'>Purchased: %s </h3>
-                <h3>Warranty Expires: %s </h3></div>",
+        printf("<div id='dates' class='clear'>
+                    <h3>Purchased: %s </h3>
+                    <h3>Warranty Expires: %s </h3>
+               </div>
+               </div>",
                 date('d m, Y', $doc->purchase_date), date('d m, Y', $warranty_exp));
 
     } catch ( Exception $e ) {
