@@ -41,7 +41,7 @@ try {
 
         $file = "images/" . $id . ".JPG";
         if (file_exists($file)) {
-          printf("<img src='%s' width='200' />", $file);
+          printf("<img class='bar-right' src='%s' width='200' />", $file);
         }
         
         printf("<h1 class='center'> %s </h1>
