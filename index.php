@@ -10,7 +10,7 @@ echo <<<_END
 _END;
 
 
-    echo "ip " . $_SERVER['REMOTE_ADDR'];
+
 
 
 //Retreive GET parameters
@@ -29,7 +29,7 @@ printf("<div id='banner' class='bar-left'>
         </div>
         <div class='clear blueLine' style='height:15px;'></div>");
 
-
+echo "ip " . $_SERVER['REMOTE_ADDR'];
 
 //Connect with Database
 try {
@@ -75,7 +75,7 @@ function sanitizeString($str_input) {
     return $str_input;
 }
 
-
+/*
 function viewFile($file) {
       $fileRef = realpath(p['']);
 
@@ -96,7 +96,7 @@ function viewFile($file) {
                                        'Content-Length'            => filesize($file),));
             $response->setHeaders($headers);
             return $response;
-
+            */
 echo <<<_END
         </div>
     </body>
