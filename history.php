@@ -37,6 +37,7 @@ try {
                  <ul>");
          $json = $doc->history;
          foreach($json as $value) {
+           echo $value['0'];
          }
          printf("</ul>
                 </div>");
