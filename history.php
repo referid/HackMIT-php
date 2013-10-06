@@ -32,7 +32,9 @@ try {
 
     // Fetch document by id
     try {
-         $view = $client->include_docs(true)->key->$username->getAllDocs();
+        error_reporting(E_ALL);
+  ini_set("display_errors", 1);
+         $view = $client->include_docs(true)->keys(array($username))->getAllDocs();
 
         var_dump($view);
 
