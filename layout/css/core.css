@@ -13,6 +13,11 @@ h1, h2, h3, h4, h5, th {
     margin:10px 10px 10px 10px;
 }
 
+img {
+  float:right;
+  margin-right:5px;
+}
+
 ul {
     list-style-type:none;
     margin:10px 10px 10px 10px;
