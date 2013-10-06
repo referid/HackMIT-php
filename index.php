@@ -9,14 +9,9 @@ echo <<<_END
         <div id="main" class="center">
 _END;
 
-<<<<<<< .mine
-
-        $httpResp = http_get("http://api.hostip.info/get_json.php", array("ip"=>$ip), $info);
-        printf($info);
 
 
-=======
->>>>>>> .r58
+
 // Retreive GET parameters
 if (isset($_GET['uid']) && isset($_GET['company'])) {
     $id = sanitizeString($_GET['uid']); //!!!! need to regex to check input
@@ -64,7 +59,6 @@ try {
     // Build Reference
     if (isset($_GET['username']) && isset($_SERVER['REMOTE_ADDR'])) {
         $username = sanitizeString($_GET['username']); //!!!! need to regex to check input
-<<<<<<< .mine
         $ip = sanitizeString($_SERVER['REMOTE_ADDR']); //!!!! need to regex to check input
 
 
@@ -73,14 +67,13 @@ try {
         $new_doc->link = $id;
         $new_doc->time = time();
         $new_doc->postal_code = $location;
-=======
         $location = sanitizeString($_GET['location']); //!!!! need to regex to check input
         $new_doc = new stdClass();
         $new_doc->username = $username;
         $new_doc->link = $id;
         $new_doc->time = time();
         $new_doc->postal_code = $location;
->>>>>>> .r58
+
         try {
           $response = $client->storeDoc($new_doc);
         } catch (Exception $e) {
