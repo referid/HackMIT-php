@@ -43,7 +43,7 @@ try {
             $doc2 = couchDocument::getInstance($client, $id);
             foreach($doc2->_attachments as $name => $values) {
                 echo $doc2->getAttachmentURI($name);
-                printf("<img src='%s' width='200' />",
+                printf("<img src=%s width='200' />",
                 $doc2->getAttachmentURI($name));
             }
         }
