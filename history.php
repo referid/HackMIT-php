@@ -38,7 +38,7 @@ try {
          $json = $doc->history;
          foreach($json as $value) {
            $split = explode('/', $value);
-           print('<li>%s</li>', $split[0]);
+           print("<li>%s</li>", $split[0]);
          }
          printf("</ul>
                 </div>");
