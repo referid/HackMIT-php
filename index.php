@@ -30,7 +30,6 @@ printf("<div id='banner' class='bar-left'>
         <div class='clear blueLine' style='height:15px;'></div>");
 
 
-
 //Connect with Database
 try {
     $client = new couchClient ('http://localhost:5984', 'db_' . $company);
@@ -50,7 +49,7 @@ try {
                </div>",
                 date('d m, Y', $doc->purchase_date), date('d m, Y', $warranty_exp));
 
-        printf("<h3>User Manual:");
+        printf("<h3>User Manual Here: %s", $doc->manual);
 
     } catch ( Exception $e ) {
         if ( $e->getCode() == 404 ) {
@@ -75,28 +74,8 @@ function sanitizeString($str_input) {
     return $str_input;
 }
 
-/*
-function viewFile($file) {
-      $fileRef = realpath(p['']);
 
-}
-        $file = realpath('data/uploads/' . $type . '/' . $fileRow[0]['file_name']);
 
-        if (file_exists($file)) {
-            $response = new \Zend\Http\Response\Stream();
-            $response->setStream(fopen($file, 'r'));
-            $response->setStatusCode(\Zend\Http\Response::STATUS_CODE_200);
-            $response->setStreamName(basename($file));
-
-            $headers = new Headers();
-            $headers->addHeaders(array('Content-Description'       => 'File Transfer',
-                                       'Content-Type'              => 'application/oct-stream',
-                                       'Content-Disposition'       => 'attachment; filename=' . basename($file),
-                                       'Content-Transfer-Encoding' => 'binary',
-                                       'Content-Length'            => filesize($file),));
-            $response->setHeaders($headers);
-            return $response;
-            */
 echo <<<_END
         </div>
     </body>
