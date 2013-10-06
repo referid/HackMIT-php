@@ -89,12 +89,14 @@ try {
           // Connect with User Database
           try {
             $userClient = new couchClient ('http://localhost:5984', 'db_users');
-               /*
+            echo "connect to client";
+
             // Fetch document by userid
             try {
                 echo "get doc twice";
                 $userDocToAdd = $userClient->getDoc($userid);
                 $userDocToDelete = $userClient->getDoc($userid);
+                               /*
                 //add history
                 echo "history " . $userDocToAdd->history[]; //= $company . "/" . $id; //!!!!!!!!!!!Is this legit
                 //delete and store back in the database
@@ -102,9 +104,10 @@ try {
                 echo "delete doc";
                 //$userResponse = $userClient->storeDoc($userDocToAdd);
                 echo "add doc";
+                 */
             } catch (Exception $e) {
                 echo "We apologize, but the history could not be updated";
-            }   */
+            }
           } catch (Exception $e) {
               echo "We apologize, but the client db connection could not be made";
           }
