@@ -37,6 +37,7 @@ try {
                  <ul>");
          echo $doc->history;
          $productList = asArray($doc->history);
+         echo $productList;
          foreach ($productList as $name => $id) {
             $address = explode("/", $id);
             echo $address;
