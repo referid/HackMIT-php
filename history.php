@@ -32,7 +32,7 @@ try {
 
     // Fetch document by id
     try {
-         $doc = $client->getDoc($userid);
+         $doc = $client->asArray()->getDoc($userid);
          printf("<div>
                  <ul>");
          $json = $doc->history;
