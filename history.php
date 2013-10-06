@@ -32,43 +32,23 @@ try {
 
     // Fetch document by id
     try {
-        error_reporting(E_ALL);
-  ini_set("display_errors", 1);
-         $view = $client->include_docs(true)->getAllDocs();
-
+         $docArray = $client->getAllDocs();
+         foreach ($docArray as $doc) {
+             if ($doc->username == $username) {
+                 printf("<div>
+                         <ul>");
+                foreach ($doc->history as $name => $id) {
+                    $address = explode("/", $id);
+                    printf("<li><a href='%s' >%s</a></li>",
+                    "http://referid.co/index.php?uid=" . $address[1] . "&company=" . $address[0] . "&username=" . $username,
+                    $name);
+                }
+                printf("</ul>
+                        </div>");
+             }
+         }
         var_dump($view);
-        die();
 
-
-
-
-        /*
-        $doc = $client->getDoc($id);
-        $warranty_exp = $doc->purchase_date + $doc->warranty_length;
-        printf("<div class='bar-right'>");
-
-        if ($doc->_attachments) {
-            $doc2 = couchDocument::getInstance($client, $id);
-            foreach($doc2->_attachments as $name => $values) {
-                printf("<img src='%s' width='200' />",
-                $doc2->getAttachmentURI($name));
-            }
-        }
-
-        printf("<h1 class='center'> %s </h1>
-                <h3 id='model'> %s Model: %s</h3><h3 id='price'> %s</h3>",
-                $doc->label, $doc->company, $doc->model, $doc->msrp);
-
-        printf("<div class='clear' id='dates'>
-                    <h3>Purchased: %s </h3>
-                    <h3>Warranty Expires: %s </h3>
-               </div>",
-                date('d M, Y', $doc->purchase_date), date('d M, Y', $warranty_exp));
-
-        printf("<h3><a href=%s>User Manual</a></h3>
-                </div>",
-                $doc->manual);
-                         */
     } catch ( Exception $e ) {
         if ( $e->getCode() == 404 ) {
             echo "We apologize, but the document does not exist\n";
