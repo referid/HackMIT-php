@@ -65,6 +65,11 @@ ul {
     background-image: url("/layout/images/barRepeat.png");
 }
 
+.link {
+  font-family:Arial, Verdana;
+  float:left;
+}
+
 #model {
     float:left;
     margin-left:5px;
@@ -75,10 +80,7 @@ ul {
     margin-right:5px;
 }
 
-#link {
-  font-family:Arial, Verdana;
-  float:left;
-}
+
 
 #dates {
     border: 1px solid #3f7ca5;
