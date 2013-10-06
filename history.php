@@ -36,7 +36,10 @@ try {
          printf("<div>
                  <ul>");
          $json = $doc->history;
-          echo $json;
+         foreach($json as $key) {
+           echo $key;
+         }
+         
 #         foreach($json) {
 #            //$address = explode("/", $id);
 #            //echo $address;
