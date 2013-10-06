@@ -97,6 +97,7 @@ try {
                 //add history
                 $historyArray = $userDocToAdd->history;
                 $historyArray[] = $company . "/" . $id;
+                $userDocToAdd->history = $historyArray;
                 echo "history " . $historyArray[0] . $historyArray[1] . $historyArray[2];
                 //delete and store back in the database
                /*     try {  $client->deleteDoc($userDocToDelete); }
@@ -105,7 +106,7 @@ try {
                     }
                 echo "delete doc";   */
 
-                                    try {  $userResponse = $userClient->storeDoc($userDocToAdd); }
+                try {  $userResponse = $userClient->storeDoc($userDocToAdd); }
                     catch (Exception $e) {
                         echo "ERROR: ".$e->getMessage()." (".$e->getCode().")<br>\n";
                     }
