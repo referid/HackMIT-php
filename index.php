@@ -21,7 +21,7 @@ require_once 'lib/PHP-on-Couch/lib/couchClient.php';
 require_once 'lib/PHP-on-Couch/lib/couchDocument.php';
 
 printf("<div id='banner' class='bar-left'>
-            <img src='layout/images/logo.png' alt='referid'/>
+            <img src='layout/images/logo-300.png' alt='referid'/>
         </div>
         <div class='clear blueLine' style='height:15px;'></div>");
 
@@ -35,8 +35,8 @@ try {
     try {
         $doc = $client->getDoc($id);
         printf("<div class='bar-right'>
-                    <h2> %s </h2>
-                </div>", var_dump($doc));
+                    <h1> %s </h1>
+                </div>", $doc->label);
 
     } catch ( Exception $e ) {
         if ( $e->getCode() == 404 ) {
