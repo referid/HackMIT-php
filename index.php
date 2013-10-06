@@ -40,7 +40,8 @@ try {
         printf("<div class='bar-right'>");
 
         if (count($doc->_attachments) > 0) {
-            printf("<img src='%s' width='200' />", $doc->getAttachmentURI($doc->_attachments[0]));
+            printf("<img src='%s' width='200' />",
+            $doc->getAttachmentURI($doc->_attachments[0]));
         }
 
         printf("<h1 class='center'> %s </h1>
@@ -53,7 +54,9 @@ try {
                </div>",
                 date('d M, Y', $doc->purchase_date), date('d M, Y', $warranty_exp));
 
-        printf("<h3><a href=%s>User Manual</a></h3>", $doc->manual);
+        printf("<h3><a href=%s>User Manual</a></h3>
+                </div>",
+                $doc->manual);
 
     } catch ( Exception $e ) {
         if ( $e->getCode() == 404 ) {
