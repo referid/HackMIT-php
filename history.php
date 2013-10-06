@@ -32,7 +32,11 @@ try {
 
     // Fetch document by id
     try {
-
+        $view_fn="function(doc) { emit(doc.timestamp,null); }";
+        $design_doc->_id = '_design/all';
+        $design_doc->language = 'javascript';
+        $design_doc->views = array ( 'by_date'=> array ('map' => $view_fn ) );
+        $client->storeDoc($design_doc);
         $response = $client->key($username)->limit(100)->include_docs(TRUE)->getView('all','by_date');
 
         var_dump($response);
@@ -69,13 +73,13 @@ try {
                          */
     } catch ( Exception $e ) {
         if ( $e->getCode() == 404 ) {
-            echo "We apologise, but the document does not exist\n";
+            echo "We apologize, but the document does not exist\n";
         }
     }
 
 } catch (Exception $e) {
     printf("<div class='bar-right'>
-                <h2> We apologise, but the server could not connect</h2>
+                <h2> We apologize, but the server could not connect</h2>
             </div>");
 }
 
