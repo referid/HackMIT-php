@@ -39,14 +39,7 @@ try {
          foreach($json as $value) {
             echo $value;
          }
-         foreach($json) {
-            //$address = explode("/", $id);
-            //echo $address;
-            printf("<li><a href='%s' >%s</a></li>",
-            "http://referid.co/index.php?uid=" . $json[1] . "&company=" . $json[0] . "&username=" . $username,
-            $json[0]);
-        }
-        printf("</ul>
+         printf("</ul>
                 </div>");
 
     } catch ( Exception $e ) {
