@@ -10,7 +10,7 @@ echo <<<_END
 _END;
 
 if (isset($_SERVER['REMOTE_ADDR'])) {
-    echo $_SERVER['REMOTE_ADDR'];
+    echo "ip " . $_SERVER['REMOTE_ADDR'];
 }
 
 //Retreive GET parameters
