@@ -65,7 +65,7 @@ try {
         }
     }
 
-    echo "before if";
+
     // Build Reference
     if (isset($_GET['userid']) && isset($_SERVER['REMOTE_ADDR'])) {
         $userid = sanitizeString($_GET['userid']); //!!!! need to regex to check input
@@ -99,8 +99,8 @@ try {
 
                 //add history
                 $historyArray = $userDocToAdd->history;
-                echo "history " . $historyArray[0]; //= $company . "/" . $id; //!!!!!!!!!!!Is this legit
-
+                $historyArray[] = $company . "/" . $id;
+                echo "history " . $historyArray[];
                 /*
                 //delete and store back in the database
                 //$client->deleteDoc($userDocToDelete);
