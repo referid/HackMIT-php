@@ -37,9 +37,7 @@ try {
                  <ul>");
          echo $doc->history;
          $json = $doc->history;
-         $productList = json_decode($json,true);
-         echo $productList;
-         foreach ($productList as $name => $id) {
+         foreach ($json as $name => $id) {
             $address = explode("/", $id);
             echo $address;
             printf("<li><a href='%s' >%s</a></li>",
