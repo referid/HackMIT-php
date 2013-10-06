@@ -36,16 +36,16 @@ try {
          printf("<div>
                  <ul>");
          $json = $doc->history;
-         $output = json_decode($json, true);
-         var_dump($output);
-         
-#         foreach($json) {
-#            //$address = explode("/", $id);
-#            //echo $address;
-#            printf("<li><a href='%s' >%s</a></li>",
-#            "http://referid.co/index.php?uid=" . $json[1] . "&company=" . $json[0] . "&username=" . $username,
-#            $json[0]);
-#        }
+         foreach($json as $value) {
+            ech $value;
+         }
+         foreach($json) {
+            //$address = explode("/", $id);
+            //echo $address;
+            printf("<li><a href='%s' >%s</a></li>",
+            "http://referid.co/index.php?uid=" . $json[1] . "&company=" . $json[0] . "&username=" . $username,
+            $json[0]);
+        }
         printf("</ul>
                 </div>");
 
