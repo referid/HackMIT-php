@@ -34,7 +34,7 @@ try {
 
 // Fetch document by id
 try {
-    $doc = $client->getDoc('"' . $company . $id . '"');
+    $doc = $client->getDoc($company . $id);
         printf("trying to get doc\n");
         var_dump($doc);
 } catch ( Exception $e ) {
