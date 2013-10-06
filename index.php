@@ -27,7 +27,7 @@ printf("after required statements\n");
 
 //Connect with Database
 try {
-    $client = new couchClient ('http://localhost:5984', '"_' . $company . '"');
+    $client = new couchClient ('http://localhost:5984', 'db_' . $company);
 } catch (Exception $e) {
     echo "We apologise, but the server could not connect\n";
 }
