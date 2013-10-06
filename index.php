@@ -59,7 +59,7 @@ try {
                     <h3>Warranty Expires: %s </h3>
                </div>",
                 date('d M, Y', $doc->purchase_date), date('d M, Y', $warranty_exp));
-        printf("hello");
+
         printf("<div class='progress'>
                     <div class='bar' style='width:%u %;'></div>
                </div>", ($warranty_exp - time())/$doc->warranty_length);
