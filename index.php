@@ -9,9 +9,9 @@ echo <<<_END
         <div id="main" class="center">
 _END;
 
-if (isset($_SERVER['REMOTE_ADDR'])) {
+
     echo "ip " . $_SERVER['REMOTE_ADDR'];
-}
+
 
 //Retreive GET parameters
  if (isset($_GET['uid']) && isset($_GET['company'])) {
