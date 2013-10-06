@@ -9,10 +9,6 @@ echo <<<_END
         <div id="main" class="center">
 _END;
 
-
-
-
-
 // Retreive GET parameters
 if (isset($_GET['uid']) && isset($_GET['company'])) {
     $id = sanitizeString($_GET['uid']); //!!!! need to regex to check input
@@ -25,7 +21,7 @@ require_once 'lib/PHP-on-Couch/lib/couchClient.php';
 require_once 'lib/PHP-on-Couch/lib/couchDocument.php';
 
 printf("<div id='banner' class='bar-left'>
-            <img src='layout/images/logo-300.png' alt='referid'/>
+        <img src='layout/images/logo-300.png' alt='referid'/>
         </div>
         <div class='clear blueLine' style='height:15px;'></div>");
 
@@ -61,11 +57,11 @@ try {
     if (isset($_GET['username']) && isset($_GET['location'])) {
         $username = sanitizeString($_GET['username']); //!!!! need to regex to check input
         $location = sanitizeString($_GET['location']); //!!!! need to regex to check input
-    $new_doc = new stdClass();
-    $new_doc->username = $username;
-    $new_doc->link = $id;
-    $new_doc->time = time();
-    $new_doc->postal_code = $location;
+        $new_doc = new stdClass();
+        $new_doc->username = $username;
+        $new_doc->link = $id;
+        $new_doc->time = time();
+        $new_doc->postal_code = $location;
         try {
           $response = $client->storeDoc($new_doc);
         } catch (Exception $e) {
