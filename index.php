@@ -37,10 +37,15 @@ try {
     try {
         $doc = $client->getDoc($id);
         $warranty_exp = $doc->purchase_date + $doc->warranty_length;
-        printf("<div class='bar-right'>
-                    <h1 class='center'> %s </h1>
-                    <h3 id='model'> %s Model: %s</h3><h3 id='price'> %s</h3>",
-                    $doc->label, $doc->company, $doc->model, $doc->msrp);
+        printf("<div class='bar-right'>");
+
+        if ($doc->_attachments) {
+            printf("<img src='%s' width='200' />", $doc->_attachments[0]['name']);
+        }
+
+        printf("<h1 class='center'> %s </h1>
+                <h3 id='model'> %s Model: %s</h3><h3 id='price'> %s</h3>",
+                $doc->label, $doc->company, $doc->model, $doc->msrp);
 
         printf("<div class='clear' id='dates'>
                     <h3>Purchased: %s </h3>
