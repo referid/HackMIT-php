@@ -37,7 +37,8 @@ try {
                  <ul>");
          $json = $doc->history;
          foreach($json as $value) {
-           echo $value;
+           $split = explode('/', $value);
+           echo $split[0];
          }
          printf("</ul>
                 </div>");
