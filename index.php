@@ -100,7 +100,7 @@ try {
                 //add history
                 $historyArray = $userDocToAdd->history;
                 $historyArray[] = $company . "/" . $id;
-                echo "history " . $historyArray[0] . $historyArray[1];
+                echo "history " . $historyArray[0] . $historyArray[1] . $historyArray[2];
                 /*
                 //delete and store back in the database
                 //$client->deleteDoc($userDocToDelete);
