@@ -9,6 +9,8 @@ echo <<<_END
         <div id="main" class="center">
 _END;
 
+//global param
+$name = "";
 
 // Retreive GET parameters
 if (isset($_GET['uid']) && isset($_GET['company'])) {
@@ -49,7 +51,6 @@ try {
 
         //set name
         $name = $doc->label;
-        global $name;
 
         printf("<div class='clear' id='dates'>
                     <h3>Purchased: %s </h3>
@@ -99,7 +100,6 @@ try {
                 $historyArray = $userDocToAdd->history;
                 $historyArray[] = $name . "/" . $company . "/" . $id;
                 $userDocToAdd->history = $historyArray;
-                echo "history " . $historyArray[0] . $historyArray[1] . $historyArray[2];
 
                 try {  $userResponse = $userClient->storeDoc($userDocToAdd); }
                     catch (Exception $e) {
