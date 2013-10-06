@@ -37,7 +37,7 @@ try {
                  <ul>");
          echo $doc->history;
          $json = $doc->history;
-         echo $json;
+         echo $json[0];
 #         foreach($json) {
 #            //$address = explode("/", $id);
 #            //echo $address;
