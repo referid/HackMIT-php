@@ -32,14 +32,9 @@ try {
 
     // Fetch document by id
     try {
-        $view_fn = "function(doc) { emit(doc.username, doc.username); }";
-        $design_doc->_id = '_design/history';
-        $design_doc->language = 'javascript';
-        $design_doc->views = array ( 'username'=> array ('map' => $view_fn ) );
-        $client->storeDoc($design_doc);
-        $response = $client->key($username)->limit(100)->include_docs(TRUE)->getView('history','username');
+         $view = $client->include_docs(true)->key->$username->getAllDocs();
 
-        var_dump($response);
+        var_dump($view);
 
 
 
