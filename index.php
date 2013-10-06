@@ -9,6 +9,7 @@ echo <<<_END
         <div id="main" class="center">
 _END;
 
+//Retreive GET parameters
  if (isset($_GET['uid']) && isset($_GET['company'])) {
     $id = sanitizeString($_GET['uid']); //!!!! need to regex to check input
     echo "received id: " . $id;
@@ -16,31 +17,32 @@ _END;
     echo "received company: " . $company;
  }
 
+ //Include library files
 require_once 'lib/PHP-on-Couch/lib/couch.php';
 require_once 'lib/PHP-on-Couch/lib/couchClient.php';
 require_once 'lib/PHP-on-Couch/lib/couchDocument.php';
 
 printf("after required statements\n");
 
+
+//Connect with Database
 try {
-    $client = new couchClient ('http://localhost:5984', '"' . $company . '"');
+    $client = new couchClient ('http://localhost:5984', '"_' . $company . '"');
 } catch (Exception $e) {
-   printf("exception caught\n");
+    echo "We apologise, but the server could not connect\n";
 }
 
-// document fetching by ID
+// Fetch document by id
 try {
-    $doc = $client->getDoc('"' . $id . '"');
+    $doc = $client->getDoc('"' . $company . $id . '"');
         printf("trying to get doc\n");
         var_dump($doc);
 } catch ( Exception $e ) {
     if ( $e->getCode() == 404 ) {
-       printf("Document does not exist !\n");
+        echo "We apologise, but the document does not exist\n";
     }
     exit(1);
 }
-printf("exit try statement\n");
-
 
 
  /* sanitizeString is a function that is intended to sanitize input gathered
