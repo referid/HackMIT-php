@@ -39,6 +39,7 @@ try {
          $productList = json_decode($doc->history);
          echo json_decode($doc->history, true);
          echo "list " . $productList;
+         echo json_last_error();
          foreach ($productList as $name => $id) {
             $address = explode("/", $id);
             echo $address;
