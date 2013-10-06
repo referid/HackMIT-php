@@ -38,6 +38,7 @@ try {
          echo $doc->history;
          $json = utf8_encode($doc->history);
          $productList = json_decode($json,true);
+         echo $productList;
          foreach ($productList as $name => $id) {
             $address = explode("/", $id);
             echo $address;
