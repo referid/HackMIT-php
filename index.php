@@ -40,10 +40,11 @@ try {
         printf("<div class='bar-right'>");
 
         if ($doc->_attachments) {
-            foreach($doc->_attachments as $name => $values) {
-                echo $doc->getAttachmentURI($name);
+            $doc2 = couchDocument::getInstance($client, $id);
+            foreach($doc2->_attachments as $name => $values) {
+                echo $doc2->getAttachmentURI($name);
                 printf("<img src='%s' width='200' />",
-                $doc->getAttachmentURI($name));
+                $doc2->getAttachmentURI($name));
             }
         }
 
