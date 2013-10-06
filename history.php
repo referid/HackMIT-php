@@ -35,6 +35,7 @@ try {
          $doc = $client->getDoc($userid);
          printf("<div>
                  <ul>");
+                 var_dump($doc->history);
          foreach ($doc->history as $name => $id) {
             $address = explode("/", $id);
             echo $address;
