@@ -79,17 +79,14 @@ try {
         $new_doc->link = $id;
         $new_doc->time = time();
         $new_doc->location = $location;
-        echo "reference built";
 
 
         try {
           $response = $client->storeDoc($new_doc);
-          echo "reference stored";
 
           // Connect with User Database
           try {
             $userClient = new couchClient ('http://localhost:5984', 'db_users');
-            echo "connect to client";
 
             // Fetch document by userid
             try {
@@ -102,15 +99,15 @@ try {
                 $historyArray[] = $company . "/" . $id;
                 echo "history " . $historyArray[0] . $historyArray[1] . $historyArray[2];
                 //delete and store back in the database
-                    try {  $client->deleteDoc($userDocToDelete); }
+               /*     try {  $client->deleteDoc($userDocToDelete); }
                     catch (Exception $e) {
                         echo "ERROR: ".$e->getMessage()." (".$e->getCode().")<br>\n";
                     }
-                echo "delete doc";
+                echo "delete doc";   */
 
                                     try {  $userResponse = $userClient->storeDoc($userDocToAdd); }
                     catch (Exception $e) {
-                        echo "add went wrong";
+                        echo "ERROR: ".$e->getMessage()." (".$e->getCode().")<br>\n";
                     }
                 echo "add doc";
             } catch (Exception $e) {
