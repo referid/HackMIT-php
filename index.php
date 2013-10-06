@@ -12,9 +12,7 @@ _END;
 //Retreive GET parameters
  if (isset($_GET['uid']) && isset($_GET['company'])) {
     $id = sanitizeString($_GET['uid']); //!!!! need to regex to check input
-    echo "received id: " . $id;
     $company = sanitizeString($_GET['company']); //!!!! need to regex to check input
-    echo "received company: " . $company;
  }
 
  //Include library files
@@ -25,7 +23,7 @@ require_once 'lib/PHP-on-Couch/lib/couchDocument.php';
 printf("<div id='banner' class='bar-left'>
             <img src='layout/images/logo.png' alt='referid'/>
         </div>
-        <hr class='clear' />");
+        <div class='clear blueLine'></div>");
 
 
 

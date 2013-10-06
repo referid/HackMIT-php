@@ -49,3 +49,14 @@ ul {
 .navmenu {
     display:inline;
 }
+
+.blueLine {
+    width:100%;
+    background-repeat: repeat-x;
+    z-index: -1;
+    margin-top: 10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-right: 18px;
+    background-image: url("/layout/images/barRepeat.png");
+}
