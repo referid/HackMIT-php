@@ -34,7 +34,7 @@ try {
     try {
         error_reporting(E_ALL);
   ini_set("display_errors", 1);
-         $view = $client->include_docs(true)->keys(array("username", $username))->getAllDocs();
+         $view = $client->include_docs(true)->getAllDocs();
 
         var_dump($view);
         die();
