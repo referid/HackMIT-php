@@ -23,7 +23,7 @@ require_once 'lib/PHP-on-Couch/lib/couchDocument.php';
 printf("<div id='banner' class='bar-left'>
             <img src='layout/images/logo.png' alt='referid'/>
         </div>
-        <div class='clear blueLine'></div>");
+        <div class='clear blueLine' style='height:15px;'></div>");
 
 
 
