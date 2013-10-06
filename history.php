@@ -34,10 +34,9 @@ try {
     try {
          $docArray = $client->getAllDocs();
          echo "fetched all docs";
-                          echo $username;
          foreach ($docArray as $doc) {
              if ($doc->username == $username) {
-
+                echo $username;
                  printf("<div>
                          <ul>");
                 foreach ($doc->history as $name => $id) {
