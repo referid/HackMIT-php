@@ -98,9 +98,8 @@ try {
                 //add history
                 $historyArray = $userDocToAdd->history;
                 global $name;
-                $historyArray[] = $name . " /" . $company . "/" . $id;
+                $historyArray[] = $name . "/" . $company . "/" . $id;
                 $userDocToAdd->history = $historyArray;
-                echo "history " . $historyArray[0] . $historyArray[1] . $historyArray[2];
 
                 try {  $userResponse = $userClient->storeDoc($userDocToAdd); }
                     catch (Exception $e) {
