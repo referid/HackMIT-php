@@ -33,6 +33,7 @@ try {
     // Fetch document by id
     try {
          $docArray = $client->getAllDocs();
+         echo "fetched all docs";
          foreach ($docArray as $doc) {
              if ($doc->username == $username) {
                  echo $username;
