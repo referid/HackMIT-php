@@ -36,17 +36,15 @@ try {
          printf("<div>
                  <ul>");
          echo $doc->history;
-         $json = $doc->history;
-         $productList = json_decode($json, true);
-         print $productList;
-         //var_dump($productList);
-#         foreach ($productList as $name => $id) {
-#            $address = explode("/", $id);
-#            echo $address;
-#            printf("<li><a href='%s' >%s</a></li>",
-#            "http://referid.co/index.php?uid=" . $address[1] . "&company=" . $address[0] . "&username=" . $username,
-#            $name);
-#        }
+         $json = utf8_encode($doc->history);
+         $productList = json_decode($json);
+         foreach ($productList as $name => $id) {
+            $address = explode("/", $id);
+            echo $address;
+            printf("<li><a href='%s' >%s</a></li>",
+            "http://referid.co/index.php?uid=" . $address[1] . "&company=" . $address[0] . "&username=" . $username,
+            $name);
+        }
         printf("</ul>
                 </div>");
 
