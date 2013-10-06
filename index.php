@@ -40,7 +40,7 @@ try {
                     <h3 id='model'> %s Model: %s</h3><h3 id='price'> %s</h3>",
                     $doc->label, $doc->company, $doc->model, $doc->msrp);
 
-        printf("<div id='dates' class='clear'>
+        printf("<div class='clear' id='dates'>
                     <h3>Purchased: %s </h3>
                     <h3>Warranty Expires: %s </h3>
                </div>
