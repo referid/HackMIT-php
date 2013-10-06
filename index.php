@@ -34,15 +34,10 @@ try {
     // Fetch document by id
     try {
         $doc = $client->getDoc($id);
-        printf("<div class='bar-left'>
-                    <ul class='center'>
-                        <li class='navmenu'><h2> %s </h2></li>
-                        <li class='navmenu'><h2> %s </h2></li>
-                    </ul>
-                </div>
-        <div class='bar-right'>
+        printf("<div class='bar-right'>
                     <h1 class='center'> %s </h1>
-                </div>", $doc->company, $doc->phone, $doc->label);
+                    <h3> %s Model: %s</h3>
+                </div>", $doc->label, $doc->company, $doc->model);
 
     } catch ( Exception $e ) {
         if ( $e->getCode() == 404 ) {
