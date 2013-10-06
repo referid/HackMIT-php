@@ -32,14 +32,11 @@ try {
 
     // Fetch document by id
     try {
-         $doc = $client->asArray()->getDoc($userid);
+         $doc = $client->getDoc($userid);
          printf("<div>
                  <ul>");
          $json = $doc->history;
-         foreach($json as $key => $val) {
-           echo $key;
-         }
-         
+         echo $json;
 #         foreach($json) {
 #            //$address = explode("/", $id);
 #            //echo $address;
