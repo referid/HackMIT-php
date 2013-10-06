@@ -4,6 +4,7 @@ echo <<<_END
 <html>
     <head>
         <link href="layout/css/core.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
     </head>
     <body>
         <div id="main" class="center">
@@ -22,26 +23,35 @@ require_once 'lib/PHP-on-Couch/lib/couch.php';
 require_once 'lib/PHP-on-Couch/lib/couchClient.php';
 require_once 'lib/PHP-on-Couch/lib/couchDocument.php';
 
-printf("after required statements\n");
+printf("<div id='banner' class='bar-left'>
+            <img src='layout/images/logo.png' alt='referid'/>
+        </div>
+        <hr />");
+
 
 
 //Connect with Database
 try {
     $client = new couchClient ('http://localhost:5984', 'db_' . $company);
+
+    // Fetch document by id
+    try {
+        $doc = $client->getDoc($id);
+        printf("<div class='bar-right'>
+                    <h2> %s </h2>
+                </div>", var_dump($doc));
+
+    } catch ( Exception $e ) {
+        if ( $e->getCode() == 404 ) {
+            echo "We apologise, but the document does not exist\n";
+        }
+    }
 } catch (Exception $e) {
-    echo "We apologise, but the server could not connect\n";
+    printf("<div class='bar-right'>
+                <h2> We apologise, but the server could not connect</h2>
+            </div>");
 }
 
-// Fetch document by id
-try {
-    $doc = $client->getDoc($id);
-        printf("trying to get doc\n");
-        var_dump($doc);
-} catch ( Exception $e ) {
-    if ( $e->getCode() == 404 ) {
-        echo "We apologise, but the document does not exist\n";
-    }
-}
 
 
  /* sanitizeString is a function that is intended to sanitize input gathered
