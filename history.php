@@ -37,7 +37,7 @@ try {
                  <ul>");
          echo $doc->history;
          $json = [$doc->history];
-         $productList = json_decode($json);
+         $productList = json_decode($json, true);
          var_dump($productList);
          foreach ($productList as $name => $id) {
             $address = explode("/", $id);
