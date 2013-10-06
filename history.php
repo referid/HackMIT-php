@@ -35,6 +35,7 @@ try {
          $doc = $client->getDoc($userid);
          printf("<div>
                  <ul>");
+         echo $doc->history;
          $productList = json_decode($doc->history, true);
          echo "list " . $productList;
          foreach ($productList as $name => $id) {
