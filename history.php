@@ -35,6 +35,7 @@ try {
          $docArray = $client->getAllDocs();
          foreach ($docArray as $doc) {
              if ($doc->username == $username) {
+                 echo $username;
                  printf("<div>
                          <ul>");
                 foreach ($doc->history as $name => $id) {
