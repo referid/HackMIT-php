@@ -104,7 +104,7 @@ try {
                 //delete and store back in the database
                     try {  $client->deleteDoc($userDocToDelete); }
                     catch (Exception $e) {
-                        echo "delete went wrong";
+                        echo "ERROR: ".$e->getMessage()." (".$e->getCode().")<br>\n";
                     }
                 echo "delete doc";
 
