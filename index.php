@@ -65,7 +65,7 @@ try {
         }
     }
 
-
+    echo "before if";
     // Build Reference
     if (isset($_GET['userid']) && isset($_SERVER['REMOTE_ADDR'])) {
         $userid = sanitizeString($_GET['userid']); //!!!! need to regex to check input
