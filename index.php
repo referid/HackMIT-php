@@ -40,9 +40,9 @@ try {
                     <h3 id='model'> %s Model: %s</h3><h3 id='price'> %s</h3>",
                     $doc->label, $doc->company, $doc->model, $doc->msrp);
 
-        printf("<h3>Purchased %s </h3>
+        printf("<h3 class='clear'>Purchased %s </h3>
                 <h3>Warranty Expires %s </h3></div>",
-                date($doc->purchase_date, 'd m, Y'), date($warranty_exp, 'd m, Y'));
+                date('d m, Y', $doc->purchase_date), date('d m, Y', $warranty_exp));
 
     } catch ( Exception $e ) {
         if ( $e->getCode() == 404 ) {
