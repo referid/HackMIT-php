@@ -66,8 +66,7 @@ ul {
 }
 
 .link {
-  font-family:Arial, Verdana;
-  font:14px;
+  font:14px/1.6 Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;
 }
 
 #model {
