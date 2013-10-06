@@ -88,7 +88,7 @@ try {
 
           // Connect with User Database
           try {
-            $userClient = new couchClient ('http://localhost:5984', 'db_user');
+            $userClient = new couchClient ('http://localhost:5984', 'db_users');
 
             // Fetch document by userid
             try {
@@ -98,9 +98,9 @@ try {
                 //add history
                 echo "history " . $userDocToAdd->history[]; //= $company . "/" . $id; //!!!!!!!!!!!Is this legit
                 //delete and store back in the database
-                $client->deleteDoc($userDocToDelete);
+                //$client->deleteDoc($userDocToDelete);
                 echo "delete doc";
-                $userResponse = $userClient->storeDoc($userDocToAdd);
+                //$userResponse = $userClient->storeDoc($userDocToAdd);
                 echo "add doc";
             } catch (Exception $e) {
                 echo "We apologize, but the history could not be updated";
