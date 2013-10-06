@@ -11,8 +11,8 @@ _END;
 
 
 // Retreive GET parameters
-if (isset($_GET['username'])) {
-    $username = sanitizeString($_GET['username']); //!!!! need to regex to check input
+if (isset($_GET['userid'])) {
+    $userid = sanitizeString($_GET['userid']); //!!!! need to regex to check input
 }
 
 // Include library files
@@ -32,25 +32,18 @@ try {
 
     // Fetch document by id
     try {
-         $docArray = $client->getAllDocs();
-         echo "fetched all docs";
-         foreach ($docArray as $doc) {
-             var_dump($doc);
-             if ($doc->username == $username) {
-                echo $username;
-                 printf("<div>
-                         <ul>");
-                foreach ($doc->history as $name => $id) {
-                    $address = explode("/", $id);
-                    echo $address;
-                    printf("<li><a href='%s' >%s</a></li>",
-                    "http://referid.co/index.php?uid=" . $address[1] . "&company=" . $address[0] . "&username=" . $username,
-                    $name);
-                }
-                printf("</ul>
-                        </div>");
-             }
-         }
+         $doc = $client->getDoc($userid);
+         printf("<div>
+                 <ul>");
+         foreach ($doc->history as $name => $id) {
+            $address = explode("/", $id);
+            echo $address;
+            printf("<li><a href='%s' >%s</a></li>",
+            "http://referid.co/index.php?uid=" . $address[1] . "&company=" . $address[0] . "&username=" . $username,
+            $name);
+        }
+        printf("</ul>
+                </div>");
 
     } catch ( Exception $e ) {
         if ( $e->getCode() == 404 ) {
