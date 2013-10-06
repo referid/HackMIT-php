@@ -39,7 +39,7 @@ try {
         printf("<div class='bar-right'>");
 
 
-        $file = realpath("images/" . $id . ".JPG");
+        $file = "images/" . $id . ".JPG";
         if (file_exists($file)) {
           printf("<img src='%s' width='200' />", $file);
         }
