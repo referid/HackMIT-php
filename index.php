@@ -61,16 +61,16 @@ try {
     if (isset($_GET['username']) && isset($_GET['location'])) {
         $username = sanitizeString($_GET['username']); //!!!! need to regex to check input
         $location = sanitizeString($_GET['location']); //!!!! need to regex to check input
-    }
     $new_doc = new stdClass();
     $new_doc->username = $username;
     $new_doc->link = $id;
     $new_doc->time = time();
     $new_doc->postal_code = $location;
-    try {
-      $response = $client->storeDoc($new_doc);
-    } catch (Exception $e) {
-      echo "We apologise, but the document could not be saved\n";
+        try {
+          $response = $client->storeDoc($new_doc);
+        } catch (Exception $e) {
+          echo "We apologise, but the document could not be saved\n";
+        }
     }
     
 } catch (Exception $e) {
