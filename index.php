@@ -41,7 +41,6 @@ try {
     if ( $e->getCode() == 404 ) {
         echo "We apologise, but the document does not exist\n";
     }
-    exit(1);
 }
 
 
