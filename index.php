@@ -41,7 +41,7 @@ try {
 
         if ($doc->_attachments) {
             foreach($doc->_attachments as $name => $values) {
-                echo $name;
+                echo $doc->getAttachmentURI($name);
                 printf("<img src='%s' width='200' />",
                 $doc->getAttachmentURI($name));
             }
