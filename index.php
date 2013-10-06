@@ -13,13 +13,13 @@ _END;
 
 
 
-//Retreive GET parameters
- if (isset($_GET['uid']) && isset($_GET['company'])) {
+// Retreive GET parameters
+if (isset($_GET['uid']) && isset($_GET['company'])) {
     $id = sanitizeString($_GET['uid']); //!!!! need to regex to check input
     $company = sanitizeString($_GET['company']); //!!!! need to regex to check input
- }
+}
 
- //Include library files
+// Include library files
 require_once 'lib/PHP-on-Couch/lib/couch.php';
 require_once 'lib/PHP-on-Couch/lib/couchClient.php';
 require_once 'lib/PHP-on-Couch/lib/couchDocument.php';
@@ -30,7 +30,7 @@ printf("<div id='banner' class='bar-left'>
         <div class='clear blueLine' style='height:15px;'></div>");
 
 
-//Connect with Database
+// Connect with Database
 try {
     $client = new couchClient ('http://localhost:5984', 'db_' . $company);
 
@@ -49,13 +49,30 @@ try {
                </div>",
                 date('d m, Y', $doc->purchase_date), date('d m, Y', $warranty_exp));
 
-        printf("<h3>User Manual Here: %s", $doc->manual);
+        printf("<h3><a href=%s>User Manual</a></h3>", $doc->manual);
 
     } catch ( Exception $e ) {
         if ( $e->getCode() == 404 ) {
             echo "We apologise, but the document does not exist\n";
         }
     }
+    
+    // Build Reference
+    if (isset($_GET['username']) && isset($_GET['location'])) {
+        $username = sanitizeString($_GET['username']); //!!!! need to regex to check input
+        $location = sanitizeString($_GET['location']); //!!!! need to regex to check input
+    }
+    $new_doc = new stdClass();
+    $new_doc->username = $username;
+    $new_doc->uid = $id;
+    $new_doc->time = time();
+    $new_doc->postal_code = $location;
+    try {
+      $response = client->storeDoc($new_doc);
+    } catch (Exception $e) {
+      echo "We apologise, but the document could not be saved\n";
+    }
+    
 } catch (Exception $e) {
     printf("<div class='bar-right'>
                 <h2> We apologise, but the server could not connect</h2>
