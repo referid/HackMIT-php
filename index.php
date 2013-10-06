@@ -85,11 +85,11 @@ try {
         try {
           $response = $client->storeDoc($new_doc);
           echo "reference stored";
-            /*
+
           // Connect with User Database
           try {
             $userClient = new couchClient ('http://localhost:5984', 'db_users');
-
+               /*
             // Fetch document by userid
             try {
                 echo "get doc twice";
@@ -104,10 +104,10 @@ try {
                 echo "add doc";
             } catch (Exception $e) {
                 echo "We apologize, but the history could not be updated";
-            }
+            }   */
           } catch (Exception $e) {
               echo "We apologize, but the client db connection could not be made";
-          }*/
+          }
 
         } catch (Exception $e) {
           echo "We apologize, but the document could not be saved\n";
