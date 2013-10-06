@@ -43,6 +43,7 @@ ul {
 .bar-left {
     width:30%;
     float:left;
+    margin-left:10px;
 }
 
 
