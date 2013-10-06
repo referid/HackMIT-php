@@ -29,7 +29,7 @@ printf("<div id='banner' class='bar-left'>
         </div>
         <div class='clear blueLine' style='height:15px;'></div>");
 
-echo "ip " . $_SERVER['REMOTE_ADDR'];
+
 
 //Connect with Database
 try {
