@@ -98,6 +98,7 @@ try {
 
                 //add history
                 $historyArray = $userDocToAdd->history;
+                global $name;
                 $historyArray[] = $name . "/" . $company . "/" . $id;
                 $userDocToAdd->history = $historyArray;
 
