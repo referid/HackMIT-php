@@ -12,7 +12,8 @@ _END;
 
 
 $ip = $_SERVER['REMOTE_ADDR'];
-$httpResp = http_get("http://api.hostip.info/get_json.php", array("ip"=>$ip), $info);
+//$httpResp = http_get("http://api.hostip.info/get_json.php", array("ip"=>$ip), $info);
+$result = file_get_contents("http://api.hostip.info/get_json.php?ip=" . $ip);
 
 
 // Retreive GET parameters
