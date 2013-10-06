@@ -62,7 +62,7 @@ try {
 
     } catch ( Exception $e ) {
         if ( $e->getCode() == 404 ) {
-            echo "We apologise, but the document does not exist\n";
+            echo "We apologize, but the document does not exist\n";
         }
     }
 
@@ -83,13 +83,13 @@ try {
         try {
           $response = $client->storeDoc($new_doc);
         } catch (Exception $e) {
-          echo "We apologise, but the document could not be saved\n";
+          echo "We apologize, but the document could not be saved\n";
         }
     }
 
 } catch (Exception $e) {
     printf("<div class='bar-right'>
-                <h2> We apologise, but the server could not connect</h2>
+                <h2> We apologize, but the server could not connect</h2>
             </div>");
 }
 
