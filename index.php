@@ -65,6 +65,7 @@ try {
         }
     }
 
+
     // Build Reference
     if (isset($_GET['userid']) && isset($_SERVER['REMOTE_ADDR'])) {
         $userid = sanitizeString($_GET['userid']); //!!!! need to regex to check input
@@ -78,9 +79,36 @@ try {
         $new_doc->link = $id;
         $new_doc->time = time();
         $new_doc->location = $location;
+        echo "reference built";
+
 
         try {
           $response = $client->storeDoc($new_doc);
+          echo "reference stored";
+
+          // Connect with User Database
+          try {
+            $userClient = new couchClient ('http://localhost:5984', 'db_user');
+
+            // Fetch document by userid
+            try {
+                echo "get doc twice";
+                $userDocToAdd = $userClient->getDoc($userid);
+                $userDocToDelete = $userClient->getDoc($userid);
+                //add history
+                echo "history " . $userDocToAdd->history[]; //= $company . "/" . $id; //!!!!!!!!!!!Is this legit
+                //delete and store back in the database
+                $client->deleteDoc($userDocToDelete);
+                echo "delete doc";
+                $userResponse = $userClient->storeDoc($userDocToAdd);
+                echo "add doc";
+            } catch (Exception $e) {
+                echo "We apologize, but the history could not be updated";
+            }
+          } catch (Exception $e) {
+              echo "We apologize, but the client db connection could not be made";
+          }
+
         } catch (Exception $e) {
           echo "We apologize, but the document could not be saved\n";
         }
