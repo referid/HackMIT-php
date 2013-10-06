@@ -68,12 +68,6 @@ try {
         $new_doc->username = $username;
         $new_doc->link = $id;
         $new_doc->time = time();
-        $new_doc->postal_code = $location;
-        $location = sanitizeString($_GET['location']); //!!!! need to regex to check input
-        $new_doc = new stdClass();
-        $new_doc->username = $username;
-        $new_doc->link = $id;
-        $new_doc->time = time();
         $new_doc->location = $location;
 
         try {
