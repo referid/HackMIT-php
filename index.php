@@ -34,10 +34,15 @@ try {
     // Fetch document by id
     try {
         $doc = $client->getDoc($id);
+        $warranty_exp = $doc->purchase_date + $doc->warranty_length;
         printf("<div class='bar-right'>
                     <h1 class='center'> %s </h1>
-                    <h3 id='model'> %s Model: %s</h3><h3 id='price'> %s</h3>
-                </div>", $doc->label, $doc->company, $doc->model, $doc->msrp);
+                    <h3 id='model'> %s Model: %s</h3><h3 id='price'> %s</h3>",
+                    $doc->label, $doc->company, $doc->model, $doc->msrp);
+
+        printf("<h3>Purchased %s </h3>
+                <h3>Warranty Expires %s </h3></div>",
+                date($doc->purchase_date, 'd m, Y'), date($warranty_exp, 'd m, Y'));
 
     } catch ( Exception $e ) {
         if ( $e->getCode() == 404 ) {
