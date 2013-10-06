@@ -38,14 +38,12 @@ try {
         $warranty_exp = $doc->purchase_date + $doc->warranty_length;
         printf("<div class='bar-right'>");
 
-        if ($doc->_attachments) {
-            $doc2 = couchDocument::getInstance($client, $id);
-            foreach($doc2->_attachments as $name => $values) {
-                printf("<img src='%s' width='200' />",
-                $doc2->getAttachmentURI($name));
-            }
-        }
 
+        $file = real_path("images/" . $id . ".JPG");
+        if (file_exists($file)) {
+          printf("<img src='%s' width='200' />", $file)
+        }
+        
         printf("<h1 class='center'> %s </h1>
                 <h3 id='model'> %s Model: %s</h3><h3 id='price'> %s</h3>",
                 $doc->label, $doc->company, $doc->model, $doc->msrp);
