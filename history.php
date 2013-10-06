@@ -12,7 +12,7 @@ _END;
 
 // Retreive GET parameters
 if (isset($_GET['username'])) {
-    $id = sanitizeString($_GET['uid']); //!!!! need to regex to check input
+    $username = sanitizeString($_GET['username']); //!!!! need to regex to check input
 }
 
 // Include library files
@@ -32,7 +32,7 @@ try {
 
     // Fetch document by id
     try {
-        $view_fn = "function(doc) { emit(doc.username); }";
+        $view_fn = "function(doc) { emit(doc.username, null); }";
         $design_doc->_id = '_design/history';
         $design_doc->language = 'javascript';
         $design_doc->views = array ( 'username'=> array ('map' => $view_fn ) );
