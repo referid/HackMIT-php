@@ -96,9 +96,11 @@ try {
                 echo "get doc twice";
                 $userDocToAdd = $userClient->getDoc($userid);
                 $userDocToDelete = $userClient->getDoc($userid);
-                               /*
+
                 //add history
                 echo "history " . $userDocToAdd->history[]; //= $company . "/" . $id; //!!!!!!!!!!!Is this legit
+
+                /*
                 //delete and store back in the database
                 //$client->deleteDoc($userDocToDelete);
                 echo "delete doc";
