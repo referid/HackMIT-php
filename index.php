@@ -99,10 +99,10 @@ try {
                 //add history
                 $historyArray = $userDocToAdd->history;
                 global $name;
-                /*
+
                 $historyArray[] = $name . "/" . $company . "/" . $id;
                 $userDocToAdd->history = $historyArray;
-                   */
+
                 try {  $userResponse = $userClient->storeDoc($userDocToAdd); }
                     catch (Exception $e) {
                         echo "ERROR: ".$e->getMessage()." (".$e->getCode().")<br>\n";
