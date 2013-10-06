@@ -40,8 +40,7 @@ try {
         printf("<div class='bar-right'>");
 
         if (count($doc->_attachments) > 0) {
-            printf("<img src='%s' width='200' />",
-            $doc->getAttachmentURI($doc->_attachments[0]));
+
         }
 
         printf("<h1 class='center'> %s </h1>
